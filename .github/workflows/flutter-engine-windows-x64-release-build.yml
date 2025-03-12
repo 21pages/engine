@@ -22,7 +22,7 @@ jobs:
           cd engine
           
           fetch flutter
-          git -C src/flutter checkout 3.24.5
+          # git -C src/flutter checkout 3.24.5
 
           $filePath = "src/flutter/shell/platform/windows/flutter_windows_engine.cc"
           (Get-Content $filePath) -replace 'ClearCurrent', 'MakeCurrent' | Set-Content $filePath
@@ -52,7 +52,7 @@ jobs:
           
           # Compiling the Flutter engine
           cd src
-          python .\flutter\tools\gn --runtime-mode=release --no-prebuilt-dart-sdk
+          python .\flutter\tools\gn --runtime-mode=release
           ninja -C .\out\host_release
           
           # Check and compress files
